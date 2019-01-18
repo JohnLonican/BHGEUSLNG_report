@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+.axis .domain {
+  display: none;
+}
+</style>
+<script type="text/javascript" src="http://code.jquery.com/jquery-2.0.2.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="d3.layout.cloud.js"></script>
+</head>
+	<body>
+		<center><b>Topic 1 Cumulative Project Management Practice (PMP)</b></center><br/>
+<select id="topic1select" onChange="chart1()">
+	<option value=1>Strategic Emphasis</option>
+	<option value=2>Senior Management Review</option>
+	<option value=3>Project Planning Review</option>
+	<option value=4>Customer end user input</option>
+	<option value=5>Team Review</option>
+	<option value=6>Performance Review</option>
+	<option value=7>Communication systems</option>
+	<option value=8>Information Systems Review</option>
+	<option value=9>Organisational Review</option>
+</select>
+<div style="width: 100%; overflow: hidden;">
+    <div style="width: 600px; float: left;"> 
+<ol id="topic1list">
+</ol>
+    </div>
+    <div style="margin-left: 620px;"> <center><svg id="topic1svg" width="960" height="500"></svg></center> </div>
+</div>
+
+
+
+
+		<hr/>
+<center><b>Topic 2 Cumulative</b></center><br/>
+Conflict
+<div style="width: 100%; overflow: hidden;">
+    <div style="width: 600px; float: left;">
+<center><canvas id="topic2chartconflict" width="500" height="500"></canvas></center>
+    </div>
+    <div style="margin-left: 620px;height:500px;overflow:scroll">
+	<ul>
+		<li><span style="color: #e6194b">Laser: In Model OK Vendor not good </span></li>
+		<li><span style="color: #e6194b">Model: Not Well defined- inherited</span></li>
+		<li><span style="color: #3cb44b">RFID: Late start  </span></li>
+		<li><span style="color: #3cb44b">Unrealistic schedule</span></li>
+		<li><span style="color: #3cb44b">Unreasonable time lines for specific tasks</span></li>
+		<li><span style="color: #3cb44b">Unreasonable time lines for specific tasks</span></li>
+		<li><span style="color: #ffe119">Smart Torque: Minimal Benefit without planning </span></li>
+		<li><span style="color: #4363d8">Different project goals</span></li>
+		<li><span style="color: #4363d8">Misaligned metrics (financial control vs project goals)</span></li>
+		<li><span style="color: #4363d8">Goals- BHGE had a manuf. 100% process completion before fabrication but shell drove 60%</span></li>
+		<li><span style="color: #4363d8">Misaligned metrics (financial control vs project goals)</span></li>
+		<li><span style="color: #4363d8">Misaligned goals – unreasonable expectations</span></li>
+		<li><span style="color: #4363d8">Misaligned goals – unreasonable expectations</span></li>
+<li><span style="color: #f58231">Deadline- Engineering Schedule not integrated with Fab schedule</span></li><li><span style="color: #f58231">Manufacturing Processes (P1, P2, P3, P4)</span></li>
+
+<li><span style="color: #911eb4">Shell changed the construction manager which caused some conflicts in fabrication approaches </span></li>
+<li><span style="color: #911eb4">Lack of prioritization for available resources-> everything is urgent </span></li>
+<li><span style="color: #911eb4">Senior Management </span></li>
+<li><span style="color: #911eb4">Lack of prioritization for available resources-> everything is urgent </span></li>
+<li><span style="color: #911eb4">Organizational Chart, (ownership)</span></li>
+<li><span style="color: #46f0f0">Communication and department silos</span></li>
+<li><span style="color: #f032e6">Skill sets, Competencies</span></li>
+<li><span style="color: #f032e6">GE/BHGE Acquisition of Salof (unclear Roles & Responsibilities)</span></li>
+<li><span style="color: #fabebe">Disconnect on Quality Standards (Schedule Delay)</span></li>
+<li><span style="color: #fabebe">Volume of RFI/NCRs arising from construction of Train 1</span></li>
+<li><span style="color: #fabebe">Defects</span></li>
+<li><span style="color: #fabebe">Rework</span></li>
+<li><span style="color: #008080">The customer, Shell and Fabrication</span></li>
+<li><span style="color: #fabebe">On Site Fit-Up between modules and specific equipment</span></li>
+<li><span style="color: #fabebe">Material shortages or material quality issues </span></li>
+<li><span style="color: #fabebe">Weld Log issues</span></li>
+<li><span style="color: #008080">No plan</span></li>
+<li><span style="color: #008080">Conflicting spec’s</span></li>
+<li><span style="color: #008080">Lack of unclear specs for a piece of equipment</span></li>
+<li><span style="color: #008080">Slight difference in the basis of design between CGC and USLNG caused some issues (eg: ambient in Canada is different than the Ambient in Georgia</span></li>
+<li><span style="color: #008080">Flare design for USLNG completely changed, which affected lines and components selection (Relief valves) </span></li>
+<li><span style="color: #008080">Design issues on equipment</span></li>
+<li><span style="color: #008080">Multiple drawing for same products</span></li>
+<li><span style="color: #008080">Electrical design deficiencies – missed scope/missing material</span></li>
+<li><span style="color: #008080">Over design spec’s</span></li>
+<li><span style="color: #008080">Inconsistent drawing revisions</span></li>
+<li><span style="color: #008080">FERC and PHEMSA requirements that affected the design (eg: small bore piping) </span></li>
+
+
+
+
+	</ul>
+	</div>
+</div>
+Morale
+<div style="width: 100%; overflow: hidden;">
+    <div style="width: 600px; float: left;">
+<center><canvas id="topic2chartmorale" width="500" height="500"></canvas></center>
+    </div>
+    <div style=""margin-left: 620px;height:500px;overflow:scroll">
+		<ul>
+			<li><span style="color: #e6194b">Support structure modifications to fit up ICP to MR Compressors</span></li>
+			<li><span style="color: #e6194b">Punch Tracking</span></li>
+			<li><span style="color: #3cb44b">Cost overrun, </span></li>
+			<li><span style="color: #3cb44b">No accountability </span></li>
+			<li><span style="color: #3cb44b">Disconnect on Quality Standards (Schedule Delay)</span></li>
+			<li><span style="color: #3cb44b">Surprises!</span></li>
+			<li><span style="color: #3cb44b">Change & Regulatory Requirements after design</span></li>
+			<li><span style="color: #3cb44b">Lack of unclear specs for a piece of equipment</span></li>
+			<li><span style="color: #008080"> Missing details in fabrication drawings </span></li>
+			<li><span style="color: #008080">Design Changes (specifications, fabrication and customer)</span></li>
+			<li><span style="color: #008080">Delays and rework caused by design deficiencies</span></li>
+			<li><span style="color: #008080">GE/BHGE Acquisition of Salof (unclear Roles & Responsibilities)</span></li>
+			<li><span style="color: #008080">Silos in departments</span></li>
+			<li><span style="color: #008080">Organizational Chart, (ownership)</span></li>
+			<li><span style="color: #008080">Too Long to make Decisions (Empowerment)</span></li>
+			<li><span style="color: #008080">Change of personnel more than one time. A lot of changes in team members  </span></li>
+			<li><span style="color: #008080">Constant beating down from management and customer
+</span></li>
+			<li><span style="color: #008080">Conflicts between different departments within BHGE in terms of priorities and path forward </span></li>
+			<li><span style="color: #008080">Customer said design was complete 
+</span></li>
+			<li><span style="color: #008080">Support raised 
+</span></li>
+<li><span style="color: #008080">Too many people competing for available resources
+</span></li>
+<li><span style="color: #008080">We only shared necessary information with each other
+</span></li>
+<li><span style="color: #008080">Competing priorities that regularly change
+</span></li>
+
+<li><span style="color: #008080">Missing schedule milestones</span></li>
+<li><span style="color: #008080">Rework and unforeseen emerging scope</span></li>
+<li><span style="color: #008080">Lack of processes in place</span></li>
+<li><span style="color: #008080">Re-work, Over Budget</span></li>
+<li><span style="color: #008080">Delay in Schedule</span></li>
+
+
+
+		</ul>
+
+	</div>
+</div>
+What could have been done?
+<div style="width: 100%; overflow: hidden;">
+    <div style="width: 600px; float: left;">
+<center><canvas id="topic2chartcouldhavebeendone" width="500" height="500"></canvas></center>
+    </div>
+    <div style=""margin-left: 620px;height:500px;overflow:scroll">
+		<ul>
+
+Proper allocation or available resources
+Not aware of all Facts
+Leaders feed up to management 
+Feedback sessions with stakeholders
+Top down leadership (accountable leaders)
+Teamwork
+Better communication from the top and flowing down
+Clear Roles & Responsibilities 
+Clear aligned objectives
+Sharing of information with all the stakeholders 
+
+Design reviews with the constructor (EPC) for constructability
+Avoid late design changes. Freeze the design after 100% completion  
+Design review
+Increased attention to the electrical design – focused on site works.
+Design review
+Freeze the design (safety, operation, code only way to change)
+Clear definition of fabrication design deliverables 
+Minimize design reviews after the start of fabrication
+Review Design Changes with Suppliers
+Carry the design to 100% complete issue for fabrication
+Complete Design, before issue to Supplier
+
+Standard Approved Specs
+Equipment Specific Requirement Specs
+Define tolerances on issued drawings and specifications 
+Have unique set of drawings for fabrication
+More detailed engineering specifications and drawings 
+
+Realistic assessments of work to be done –  aligned to hrs not dates
+No plan
+Proper processes from day 1
+Clearly defined priorities
+A plan, and then follow the plan
+Time for Alignment Sessions
+Realistic assessments of work to be done –  aligned to hrs not dates
+Integrated plan
+Don’t let schedule be the only thing dictating priority and work
+Clearly defined priorities
+
+Proper allocation or available resources
+Understanding the project is different
+
+ITP points with Suppliers
+RFI from Supplier
+Insure current rev’s are on the floor
+
+Allow field welds and other solutions that are considered normal practice for fabrication and construction   
+
+Stop work NCR, delay in progress\
+Regular Audits
+Quality confirmation
+
+Tollgates
+
+		</ul>
+
+	</div>
+</div>
+What signals heeded?
+
+Data Tallied?
+		<hr/>
+		<center><b>Topic 3 Cumulative</b></center><br/>
+		<hr/>
+		<center><b>Topic 4 Cumulative</b></center><br/>
+		<center>Recommendations</center>
+What
+<div style="width: 100%; overflow: hidden;">
+    <div style="width: 600px; float: left;">
+<center><canvas id="topic4recommendwhat" width="300" height="300"></canvas></center>
+    </div>
+    <div style="margin-left: 620px;height:500px;overflow:scroll">
+	<ul>
+<li><span style="color: #008080">Review project process and manufacturing </span></li>
+<li><span style="color: #008080">Clearly defined project deliverables </span></li>
+<li><span style="color: #008080">Plan properly</span></li>
+<li><span style="color: #008080">Develop a plan in the beginning with support from leadership, with clear goals and implementation plan</span></li>
+<li><span style="color: #008080">Invest across the complete the delivery chain</span></li>
+<li><span style="color: #008080">Sit down with customer & share expectations & make a plan</span></li>
+<li><span style="color: #008080">Fully understanding deign process vs. fabrication process and integrate each </span></li>
+<li><span style="color: #008080">Bigger module design, freeze the design. Simplify and standardize the design. Design for shipment.</span></li>
+<li><span style="color: #008080">Establish clear goals, establish a team, get customer input, prioritize activities and routinely monitor progress </span></li>
+<li><span style="color: #008080">Use correct spec’s, codes & procedures while fabrication modules</span></li>
+<li><span style="color: #008080">Standardize & Simplify Specs More Design Reviews Include supply base during Eng. Design soon as possible</span></li>
+	</ul>
+	</div>
+</div>
+Automate
+<div style="width: 100%; overflow: hidden;">
+    <div style="width: 600px; float: left;">
+<center><canvas id="topic4recommendautomate" width="300" height="300"></canvas></center>
+    </div>
+    <div style="margin-left: 620px;height:500px;overflow:scroll">
+	<ul>
+<li><span style="color: #008080">Valve repurposing – RFID recommendation </span></li>
+<li><span style="color: #008080">Need to integrate separate processes that need to be linked to bill of materials, procurement, design</span></li>
+<li><span style="color: #008080">Everything, approval processes, automated action tracking system, automated BOM, automated management of change, PO process, revision control, supply change system, all reporting</span></li>
+<li><span style="color: #008080">Drawing production</span></li>
+<li><span style="color: #008080">Documentation Turnover both ways</span></li>
+<li><span style="color: #008080">Automatic revisions to drawing; unique set of fabrication drawings for 10 trains</span></li>
+<li><span style="color: #008080">Document Flow & Approval</span></li>
+<li><span style="color: #008080">Create a strategy and then create a plan that is fully supported and funded with a realistic schedule.</span></li>
+<li><span style="color: #008080">Create the right data base to drive the automation of the plan</span></li>
+<li><span style="color: #008080">Have the design automated to the ERP system </span></li>
+<li><span style="color: #008080">Detailed connections from the high level ERP through to each functional group with opportunities to verify if the processes need to be amended or rectified.</span></li>
+	</ul>
+	</div>
+</div>
+
+Skills
+<div style="width: 100%; overflow: hidden;">
+    <div style="width: 600px; float: left;">
+<center><canvas id="topic4recommendskills" width="300" height="300"></canvas></center>
+    </div>
+    <div style="margin-left: 620px;height:500px;overflow:scroll">
+	<ul>
+<li><span style="color: #008080">Understanding digitalization – how to leverage and improve processes</span></li>
+<li><span style="color: #008080">Resources, competencies, understanding of the plan solution scope, understanding of processes, open communication</span></li>
+<li><span style="color: #008080">Processes and procedures </span></li>
+<li><span style="color: #008080">IT and subject matter experts in digitalization standard products and concepts.</span></li>
+
+			<li><span style="color: #008080">Awareness of the technology</span></li>
+
+
+<li><span style="color: #008080">Dig. Team to understand the tool & the use of the information</span></li>
+<li><span style="color: #008080">Professional engineers, materials for construction engineer, more operation expertise included in design originations, valve engineers, mechanical engineers</span></li>
+<li><span style="color: #008080">Complete fabrication drawing review by sr. fabrication expert</span></li>
+	</ul>
+	</div>
+</div>
+Understand
+<div style="width: 100%; overflow: hidden;">
+    <div style="width: 600px; float: left;">
+<center><canvas id="topic4recommendunderstand" width="300" height="300"></canvas></center>
+    </div>
+    <div style="margin-left: 620px;height:500px;overflow:scroll">
+	<ul>
+Yes – digitalization would have offered less manual processes, better management of resources and deployment of material	
+Understand yes, Tools, people, time invested is important, budget
+
+
+	</ul>
+	</div>
+</div>
+
+		<center>Suggestions</center>
+What
+<div style="width: 100%; overflow: hidden;">
+    <div style="width: 600px; float: left;">
+<center><canvas id="topic4suggestionswhat" width="300" height="300"></canvas></center>
+    </div>
+    <div style="margin-left: 620px;height:500px;overflow:scroll">
+	<ul>
+Follow the plan and have a regular review of the plan. No change mindset pushed down from top management.
+Plan, Team, system, communicate
+First create a plan, then create a team to implement the plan, then establish a budget to procure software/hardware.  Connect the team with the high level business functions to ensure alignment with overall business goals.  Establish timelines and monitor progress routinely.
+To have a steering community to monitor & drive the plan
+Leadership Commitment Detailed Plan (all committed to)
+Freeze the design earlier, apply simplification.
+Standardize & Simplify Specs More Design Reviews Include supply base during Eng. Design soon as possible
+
+
+
+	</ul>
+	</div>
+</div>
+
+Change Faster
+<div style="width: 100%; overflow: hidden;">
+    <div style="width: 600px; float: left;">
+<center><canvas id="topic4suggestionschangefaster" width="300" height="300"></canvas></center>
+    </div>
+    <div style="margin-left: 620px;height:500px;overflow:scroll">
+	<ul>
+
+Benchmark, consult,SME
+Benchmark best practices and interview users to gain their perspectives on the tools.  Consult the subject matter experts to tailor the plan to deliver the overall goal and align with the business objectives
+Use correct spec’s, codes & procedures while fabrication modules
+Standardize and simply specs
+Communication (Safe zones)
+Include/involve manufacturing in the design.
+Engaged experienced operations personnel early in the design process.
+Piloting, live testing with positive feedback prior to execute.
+
+	</ul>
+	</div>
+</div>
+Suggest
+<div style="width: 100%; overflow: hidden;">
+    <div style="width: 600px; float: left;">
+<center><canvas id="topic4suggestionssugg" width="300" height="300"></canvas></center>
+    </div>
+    <div style="margin-left: 620px;height:500px;overflow:scroll">
+	<ul>
+
+Understand Processes 
+There are lots of opportunities and identify the largest bottlenecks and working from there.
+Lessons Learned
+Benchmark best practices
+Benchmark
+Spending more time finalizing the original plan 
+Complete fabrication drawing review by sr. fabrication expert
+Automatic revisions to drawing; unique set of fabrication drawings for 10 trains
+Complete Prior to Build Standardize & Simplify Specs
+Customizing tools for each department as needed
+
+	</ul>
+	</div>
+</div>
+
+		<hr/>
+		Topic 5 Cumulative<br/>
+What did not go well?
+<div style="width: 100%; overflow: hidden;">
+    <div style="width: 600px; float: left;">
+<center><canvas id="topic5notgowell" width="300" height="300"></canvas></center>
+    </div>
+    <div style="margin-left: 620px;height:500px;overflow:scroll">
+	<ul>
+Schedule
+Lead times, inherited status  
+Not planned or structured with proper expectations
+The plan, lack of a plan at the inception of the project
+Not set up for success – 
+No digitalization Plan meant more manual work -> more resources
+Unnecessary re-design because requirements were not developed
+Schedule Delay
+Rework due to missing materials
+No clear plan
+Missing plan
+Delay in execution
+No Manufacturing Process: Re-work, Schedule Delay, Cost, HSSE, Default
+Lack of Supply Chain or Technology Plan
+Plan wasn’t implemented
+Lack of Awareness
+Bits and pieces rather than a whole 
+a goal not synchronized with Design
+Incomplete drawings at the time of fabrication
+Significant errors in fabrication
+No goals set in the outset
+People under schedule pressure so some tools were not used properly
+Tools that were implemented weren’t implemented well
+Tools implemented during the project (not in the beginning)
+Delay in managing Quality issues
+No Standards or No Standardized Specs
+Quality issues
+Quality standards compromised by lack of comprehensive plans
+Over Engineered Equipment
+We did not simplify
+Optimizations
+Multiple Changes
+Lack of material management tools -> excessive ordering, $$
+No alignment on the value drivers for digitalization 
+Missed procurement opportunities 
+Lack of material control
+Latency in financial systems hid ongoing expenditures 
+Lack of cost control – no visibility of ongoing expenditures.
+Cost overruns
+Excess cost & manhours
+Flawless comm.
+Managing suppliers
+Right info to pass to customer-miscommunication
+First Phase 
+	</ul>
+	</div>
+</div>
+What could you do to rectify it?
+<div style="width: 100%; overflow: hidden;">
+    <div style="width: 600px; float: left;">
+<center><canvas id="topic5rectify" width="300" height="300"></canvas></center>
+    </div>
+    <div style="margin-left: 620px;height:500px;overflow:scroll">
+	<ul>
+Digitization
+Implemented some digitalization 
+Understand Design to Fab.
+Removing conflicting priorities
+Play catch up when problems appeared
+Review requirements
+100% design completion
+Financial reviews monthly – not effective due to system issues
+Production reviews three times per week
+Manual processes – assigned resources to manage shortfalls
+unifier
+Manufacturing Process Plan (P1, P2, P3, P4)
+Alignment on tools
+Smart sheet
+Expediting drawings
+Integrated Schedule 
+Expedite
+Tried to communicate clearly to Shell
+Find Alternative Approved Suppliers
+	</ul>
+	</div>
+</div>
+
+What changes / procedures would you recommend for the future?
+<div style="width: 100%; overflow: hidden;">
+    <div style="width: 600px; float: left;">
+<center><canvas id="topic5changes" width="300" height="300"></canvas></center>
+    </div>
+    <div style="margin-left: 620px;height:500px;overflow:scroll">
+	<ul></ul>
+	</div>
+</div>
+
+What worked well and do you recommend continuing
+<div style="width: 100%; overflow: hidden;">
+    <div style="width: 600px; float: left;">
+<center><canvas id="topic5workedwell" width="300" height="300"></canvas></center>
+    </div>
+    <div style="margin-left: 620px;height:500px;overflow:scroll">
+	<ul></ul>
+	</div>
+</div>
+		<hr/>
+		<center><b>Topic 6 Cumulative</b></center><br/>
+Digitalization
+<div style="width: 100%; overflow: hidden;">
+    <div style="width: 600px; float: left;"> 
+<svg id="wc1" width="500" height="500"></svg>
+    </div>
+    <div id="wc1pg" style="margin-left: 620px;"></div>
+</div>
+Design
+
+<div style="width: 100%; overflow: hidden;">
+    <div style="width: 600px; float: left;"> 
+<svg id="wc2" width="500" height="500"></svg>
+    </div>
+    <div id="wc2pg" style="margin-left: 620px;"></div>
+</div>
+One Team
+<div style="width: 100%; overflow: hidden;">
+    <div style="width: 600px; float: left;"> 
+<svg id="wc3" width="500" height="500"></svg>
+    </div>
+    <div id="wc3pg" style="margin-left: 620px;"></div>
+</div>
+Appropriate Modularization
+<div style="width: 100%; overflow: hidden;">
+    <div style="width: 600px; float: left;"> 
+<svg id="wc4" width="500" height="500"></svg>
+    </div>
+    <div id="wc4pg" style="margin-left: 620px;"></div>
+</div>
+R U OK
+<div style="width: 100%; overflow: hidden;">
+    <div style="width: 600px; float: left;"> 
+<svg id="wc5" width="500" height="500"></svg>
+    </div>
+    <div id="wc5pg" style="margin-left: 620px;"></div>
+</div>
+		<hr/>
+
+
+<script>
+function chart1() {
+	var n = $("#topic1select").val();
+
+	$("#topic1list").empty();
+
+	var questions = ['Were project theme goals attained?','Were the project theme goals clear?','Did the team create a goal statement that was specific, measurable, time based for project themes?','Did you understand how the project themes would add value to the project?','Were project theme deadlines truly negotiated with project sponsors?','Did top management support the project themes throughout its duration?','Did I feel like the senior management team fully understood the project theme processes?','','Was a detailed plan developed for each project theme?','Was the core team involved in the development of each project themes plan?','Is there is a method for updating the proect themes plans?', 'Did each project theme have a proper budget?'];
+	var firstQNum = ((n-1)*4)%12;
+	var html = "";
+	for (k=firstQNum; k<=firstQNum+3; k++) {
+		if (questions[k] !== "") 
+		html+="<li>" + questions[k] + "</li>";
+	}
+	$("#topic1list").html(html);
+
+	
+
+
+	$("#topic1svg").empty();
+	var svg = d3.select("#topic1svg"),
+	    margin = {top: 20, right: 20, bottom: 30, left: 40},
+	    width = +svg.attr("width") - margin.left - margin.right,
+	    height = +svg.attr("height") - margin.top - margin.bottom,
+	    g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+	var x0 = d3.scaleBand()
+	    .rangeRound([0, width])
+	    .paddingInner(0.1);
+
+	var x1 = d3.scaleBand()
+	    .padding(0.05);
+
+	var y = d3.scaleLinear()
+	    .rangeRound([height, 0]);
+
+	var z = d3.scaleOrdinal()
+	    .range(["#348732", "#b7053d"]);
+
+	d3.csv("topic1_"+n+"data.csv", function(d, i, columns) {
+	  for (var i = 1, n = columns.length; i < n; ++i) d[columns[i]] = +d[columns[i]];
+	  return d;
+	}, function(error, data) {
+	  if (error) throw error;
+
+	  var keys = data.columns.slice(1);
+
+	  x0.domain(data.map(function(d) { return d.State; }));
+	  x1.domain(keys).rangeRound([0, x0.bandwidth()]);
+	  y.domain([0, d3.max(data, function(d) { return d3.max(keys, function(key) { return d[key]; }); })]).nice();
+
+	  g.append("g")
+	    .selectAll("g")
+	    .data(data)
+	    .enter().append("g")
+	      .attr("transform", function(d) { return "translate(" + x0(d.State) + ",0)"; })
+	    .selectAll("rect")
+	    .data(function(d) { return keys.map(function(key) { return {key: key, value: d[key]}; }); })
+	    .enter().append("rect")
+	      .attr("x", function(d) { return x1(d.key); })
+	      .attr("y", function(d) { return y(d.value); })
+	      .attr("width", x1.bandwidth())
+	      .attr("height", function(d) { return height - y(d.value); })
+	      .attr("fill", function(d) { return z(d.key); });
+
+	  g.append("g")
+	      .attr("class", "axis")
+	      .attr("transform", "translate(0," + height + ")")
+	      .call(d3.axisBottom(x0));
+
+	  g.append("g")
+	      .attr("class", "axis")
+	      .call(d3.axisLeft(y).ticks(null, "s"))
+	    .append("text")
+	      .attr("x", 2)
+	      .attr("y", y(y.ticks().pop()) + 0.5)
+	      .attr("dy", "0.32em")
+	      .attr("fill", "#000")
+	      .attr("font-weight", "bold")
+	      .attr("text-anchor", "start");
+
+	  var legend = g.append("g")
+	      .attr("font-family", "sans-serif")
+	      .attr("font-size", 10)
+	      .attr("text-anchor", "end")
+	    .selectAll("g")
+	    .data(keys.slice().reverse())
+	    .enter().append("g")
+	      .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
+
+	  legend.append("rect")
+	      .attr("x", width - 19)
+	      .attr("width", 19)
+	      .attr("height", 19)
+	      .attr("fill", z);
+
+	  legend.append("text")
+	      .attr("x", width - 24)
+	      .attr("y", 9.5)
+	      .attr("dy", "0.32em")
+	      .text(function(d) { return d; });
+	});
+}
+
+
+window.chartColors = {
+	red: 'rgb(255, 99, 132)',
+	orange: 'rgb(255, 159, 64)',
+	yellow: 'rgb(255, 205, 86)',
+	green: 'rgb(75, 192, 192)',
+	blue: 'rgb(54, 162, 235)',
+	purple: 'rgb(153, 102, 255)',
+	grey: 'rgb(201, 203, 207)'
+};
+var datax  = [7, 6, 6, 3, 10];
+var labelsx = [
+			'time issues',
+			'goal issues',
+			'spec issues',
+			'manufacture issues',
+			'???'
+		];
+
+conflictLabels = ['Model', 'Time', 'Tool', 'Goals', 'Process', 'Manager', 'Communication', 'Roles', 'Quality', 'Shell', 'Materials', 'Planning', 'Design'];
+conflictData = [2, 4, 1, 6, 2, 5, 1, 2, 4, 1, 3, 3, 8 ];
+moraleLabels = ['Technical', 'Leadership', 'Design', 'Organization Structure', 'Conflict and change', 'Environment', 'Schedule'];
+moraleData = [2, 6, 3, 3, 6, 3, 5];
+
+recommendwhatLabels = ['Process','Planning','Design','Leadership','Fabrication'];
+
+recommendwhatData = [2, 4, 2, 1, 2];
+
+recommendautomateLabels = ['Process', 'Technical', 'Project Management', 'Drawings and Documents', 'Planning','ERP'];
+recommendautomateData = [1, 1, 1,4,2,2];
+
+recommendskillLabels = ['Process & Procedure', 'IT', 'Skills', 'Fabrication'];
+recommendskillData = [3,2, 2,1];
+
+recommendunderstandLabels = ['yes', 'yes - tools and processes'];
+recommendunderstandData = [4,2];
+
+topic4suggestionswhatLabels = ['Planning', 'Leadership', 'Design'];
+topic4suggestionswhatData = [4,1,3];
+
+topic4suggestionschangefasterLabels = ['Benchmark', 'Specs', 'Communication','Manufacturing', 'Design', 'Piloting'];
+topic4suggestionschangefasterData = [2,2,1,1,1,1];
+
+topic4suggestionssuggLabels = ['Process', 'Opportunities', 'Lessons Learned','Benchmark', 'Planning', 'Fabrication', 'Tools'];
+topic4suggestionssuggData = [1,1,1,2,1,3,1];
+
+topic2chartcouldhavebeendoneLabels = ['Team', 'Design', 'Drawings','Planning', 'Project Management', 'Technical', 'Fabrication', 'Equipment', 'Quality'];
+topic2chartcouldhavebeendoneData = [10,11,5,10,2,3,1,3,1];
+
+
+topic5notgowelldata = [16, 5, 3, 4, 2, 6, 4, 3, 1];
+topic5notgowellLabels = ['Planning', 'Goals', 'Tools', 'Quality', 'Complexity', 'Management', 'Cost','Communication', 'Process'];
+
+
+
+
+
+topic5rectifydata = [2,1,2,1,1,2,5,3,2];
+topic5rectifyLabels = ['Digitization','Process','Management','Process','Design','Reviews','Process & Tools','Efficiency','Communication'];
+
+
+
+
+
+topic5changesdata = [];
+topic5changesLabels = [];
+
+topic5workedwelldata = [];
+topic5workedwellLabels = [];
+
+
+
+
+
+window.onload = function() {
+	chart1();
+	chart2("topic2chartconflict", conflictData, conflictLabels);
+	chart2("topic2chartmorale", moraleData, moraleLabels);
+	chart2("topic4recommendwhat", recommendwhatData, recommendwhatLabels);
+	chart2("topic4recommendautomate", recommendautomateData, recommendautomateLabels);
+	chart2("topic4recommendskills", recommendskillData, recommendskillLabels);
+	chart2("topic4recommendunderstand", recommendunderstandData, recommendunderstandLabels);
+	chart2("topic4suggestionswhat", topic4suggestionswhatData, topic4suggestionswhatLabels);
+	chart2("topic4suggestionschangefaster", topic4suggestionschangefasterData, topic4suggestionschangefasterLabels);
+	chart2("topic4suggestionssugg", topic4suggestionssuggData, topic4suggestionssuggLabels);
+	chart2("topic2chartcouldhavebeendone", topic2chartcouldhavebeendoneData, topic2chartcouldhavebeendoneLabels);
+
+chart2("topic5workedwell", topic5workedwelldata, topic5workedwellLabels);
+chart2("topic5changes", topic5changesdata, topic5changesLabels);
+chart2("topic5rectify", topic5rectifydata, topic5rectifyLabels);
+chart2("topic5notgowell", topic5notgowelldata, topic5notgowellLabels);
+
+
+};
+
+function chart2(id, ch2data, ch2labels) {
+	var config = {
+		type: 'pie',
+		data: {
+			datasets: [{
+				data: ch2data,
+				backgroundColor: [
+					'#e6194b', '#3cb44b', '#ffe119', '#4363d8', '#f58231', '#911eb4', '#46f0f0', '#f032e6', '#bcf60c', '#fabebe', '#008080', '#e6beff', '#9a6324', '#fffac8', '#800000', '#aaffc3', '#808000', '#ffd8b1', '#000075', '#808080', 
+				],
+				label: 'Dataset 1'
+			}],
+			labels: ch2labels
+		},
+		options: {
+			responsive: false,
+			maintainAspectRatio: false,
+		}
+	};
+	var ctx = document.getElementById(id).getContext('2d');
+	window.myPie = new Chart(ctx, config);
+	 $("#"+id).click( 
+		                function(evt){
+		                    var canvas = $("#myChart");
+		                    canvas.onclick = function(evt){
+	    var activePoints = window.myPie.getElementsAtEvent(evt);
+
+	    // => activePoints is an array of points on the canvas that are at the same position as the click event.
+	};
+					console.log(evt.activePoints);
+		                }
+		            );
+}
+
+var fill = d3.scaleOrdinal(d3.schemeCategory20);
+var digitalization = {
+"Planning" : "Planning<br/>Understand and define requirements with a set time line before project start",
+"Communications" : "Communications<br/>Ensure all functions are aware of contract requirements and can properly execute and understanding the benefits",
+"Project Rigger" : "Project Rigger<br/>Follow up and ensure task are on target ",
+"Drawings" : "Engineering Drawings<br/>Stream line engineering drawing As-built submissions- Minimal data resubmittals",
+"digitalization" : "Strategic position on digitalization<br/>Identify the strategy and key value drivers on digitalization",
+"plan" : "Digitalization plan<br/>Develop a plan",
+"Accountability" : "Accountability<br/>1 person to be responsible for implementing the plan",
+"KPIs" : "KPIs<br/>Measuring the success factors of the project, lead and lag indicators",
+"Elba" : "Do we have the right DP plan for Elba<br/>Make assessment. Do we have right DP plan",
+"DP" : "DP Assess my Organization-cultivate new ideas and processes Create events in order to inspire to create digital activity",
+"deviation" : "Manage deviation<br/>Be agile & flexible. Need auditing & monitoring of the DP.  Be ready to solve issues as they arise",
+"action" : "Multiple personal tools to manage same information/action plan<br/>Improve project team bottom up process to collect needs and daily repetitive activities that can drive the Dig. Opportunities, Share new technology & merging opportunities Share new technology & merging opportunities",
+"Investigate" : "Investigate the Digitalization for site<br/>How we are receiving, communicating the information requests (RFI’s)",
+"Proect" : "Delivery Plan for Remaining Project<br/> Is there any Digitalization plan for what is left to deliver for remaining of the project at site.",
+"SN Material" : "Develop SN Material Order Process (Btwn. Site to HSC)<br/>Streamline Service Now process for Sales Ordering of Material to site using HSC",
+"As Builts" : "Digitalization of information at site for the As Builts<br/>Set Requirements: Who, When, etc.",
+"Site" : "Elba Site Work Shop for Digitalization<br/>Opportunity for improvements at Elba",
+"Timeliness" : "Timeliness of Issue resolution<br/>Make people accountable for delivery of solutions.  Give clear goals and objectives to the stakeholders.  Routing operating reviews. Speedier issue resolution followed by expedited implementation (including material purchase and on-site activities)",
+"RFI" : "RFI Reviews for Elba",
+"Resource" : "Resource Allocation",
+"Material" : "Material Issues<br/>Close out all known shortages – communicate on-site arrival dates.  Manage material receipt and issue.  Define material ordering processes and track on-time metrics.",
+"Quality" : "Quality Inspections<br/>Coordinate quality inspection on repairs/rework/site work with installer – ensure quality records are updates.",
+"Communications" : "Communications<br/>Create forum for all key stakeholders – develop escalation path for rapid issue resolution – celebrate successes.",
+"Tools" : "Digitalization Tools<br/>Assess applicability of digitalization tools to improve communications, , Quality Inspections, Material handling, Resource allocation and RFI reviews. "
+}
+
+var design = {
+"BOM" : "BOM<br/>USLNG designed to be 80% of CGC (but CGC designed without a BOM – had a manual take-off for a BOM – had a spreadsheet that was given but it was not system driven).  USLNG’s BOM built off of the CGC’s spreadsheet output which had errors because it was not system generated.  The BOM needs to be ‘intelligent’ not manually created – GE used Bently for their 3D model but it was still based off of the CGC design/BOM; also the 3D model was not integrated with Oracle. Didn’t use the system to drive orders – manually did the PR/POs, at one point had 9 schedulers.",
+"Integrated" : "Integrated Schedule/Primavera<br/>Schedule not supported by the BOM – not integrated with the BOM.  Schedule set up with major milestones, and based on individual’s estimates on how long the tasks would take – but based on the materials being there (and schedule slipped when materials/equipment was there).",
+"Oracle" : "Implementation of Oracle<br/>Oracle implemented in 2014, but no set goal of what the ERP system should do – no clear strategy of how to use the system. Salof hadn’t used Oracle before, and also design system wasn’t linked to the Oracle system (not automatic – had to be manually loaded and had human factor mistakes in the integration). Also, multiple GE businesses had used Oracle differently – different ‘wants’ on what Oracle should do.",
+"RFID" : "RFID<br/> ",
+"Torque" : "Smart Torque<br/>Need to decide if this will be implemented before the design so that the design phase could be set up to use Smart Torque.",
+"goals" : "No clear goals for digitalization strategy set in the beginning, also with input from customer and end user<br/>Need to have a plan in the beginning and agree what tools, etc. will be used and implement these in the beginning, along with a  budget for the tools to be used.",
+"punches" : "Software changes three times (on tracking punches)<br/>BHGE didn’t have a digital system from the beginning that worked, so ‘upgraded’ the system multiple times which created issues in tracking punch items.",
+"Processes" : "Processes and procedures<br/>Processes and procedures not in place/clear for digitalization – reliance purely on people to do to the work, system didn’t work if key people were away.",
+"Smart" : "Quality System Digitalization – e.g. Smart Sheet<br/>Weld logs for trains 1, 2 not good – using an excel spreadsheet, transitioned to Smart Sheet after train 5 (Q1 2017).",
+"User" : "End User input/communication on digitalization<br/>Needed to include end user (KM) input into the digitalization strategy earlier so that it can be incorporated into to the strategy.",
+"Implementation" : "Digitalization Strategy and Implementation <br/>Would be helpful to have a person outside of the project team GE to help teams keep on track with their digitalization goals (who is not under Guido for example – and who is not under the project schedule pressures).",
+"book" : "Data book digitalization<br/>How do we digitalize data books?  This is a lot of cost to BHGE and Shell.",
+"Changes" : "Changes at Site<br/> How will changes at site be fed back to BHGE?",
+"Email" : "Use of Email<br/> People using email to communicate instead of having a f2f meeting/phone call to discuss – don’t “hide behind emails”.  Can also create misunderstandings.",
+"Freeze" : "Freeze the design<br/> The design needs to be frozen before fabrication begins.",
+"Constructability" : "Constructability and Operability<br/> Include constructability and operability design reviews during the initial detailed design process and include any specific recommendations into the detailed design",
+"Electrical" : "Electrical Design<br/> Provide industry experienced engineering oversight in the electrical design works with specific focus on cable routing and consolidation of material ordering. ",
+"BOM" : "BOM<br/> Implement design part numbers in the ERP at the design phase in order to facilitate procurement, material management, shipping completeness and logistics control.",
+"Templates" : " Templates<br/> Use of facsimile templates as fabrication guides for equipment that is not physically present during the fabrication process. ",
+"3 D Model " : "3 D Model <br/> Include electrical design detail sin the 3 D Model during detailed design",
+"EPC" : "EPC Involvement <br>Complete detailed design reviews with the EPC or Constructor during the early engineering phases."
+}
+
+var oneteam = {
+"Collaboration" : "Collaboration<br/>Use the One team Approach to build collaborative teams and sub-teams that have specific deliverables and metrics.  Task the team to come up with the ways of working to deliver the goal.",
+"Empowerment" : "Empowerment<br/>Use the One Team approach to drive decision making downwards in the organization, celebrate success and do not punish failure.  Encourage team to make fact based decisions on their own.  Teach teams to justify their decisions with facts not feelings.",
+"Trust" : "Trust<br/>Be open and honest – no hidden agendas, no hiding errors, no blame or recriminations.  Build trust through demonstrated actions and be prepared to work at this constantly.",
+"Belief" : "Belief<br/>Use the One Team approach to develop relationships between the key stakeholders in the organizations.  Believe that each person will be true to their word and will work to the betterment of the project and achievement of the shared goals.",
+"Premise" : "The Premise of the overall design must be studied better and understood more<br/>",
+"CGC" : "Replication of CGC and what that meant in reality <br/>",
+"10 trains" : "Having 10 trains put together and its effect on the design <br/>",
+"Salof" : "Details provided in the design being specific to the standards of one construction company (Salof) <br/>",
+"welds" : "Field welds not being permitted by customer <br/>",
+"valves" : "Overdesigning valves and equipment due to difference in basis of design between Canada and Georgia  <br/>",
+"Integration" : "Integration of customer supplied equipment  <br/>",
+"design" : "Increase in engineering design resources <br/>",
+"Communication" : "Communication Flow <br/>Force the Organization to communicate … at the beginning looks like “forced” but then it became natural and spontaneous … Break the inertia !!! ",
+"open" : "ONE team (open communication) should be started at the beginning <br/>We should promote at the beginning of each project in the future",
+"Delegation" : "Ownership & Delegation of Authority <br/>Empower the team members to make things happen immediately without wait long approval process ",
+"Leadership" : "Senior Leadership supportive <br/>Make sure Senior leaders are supporting and keep the team aligned",
+"Execution" : "Execution plan totally shared and open <br/>Shell & BHGE on the same page, agreeing on the schedule and supporting each other",
+"inspection" : "Resources sharing --- quality \ inspection  <br/>Several inspections were done only by one “side” to avoid overlapping and better use our resources",
+"Shell" : "Collaborative approach and Shell approach “what can I do to help you” <br/>Companies supporting each other and asking “how can we help each other”",
+"inspection" : "OPEN BOOK and inspection criteria relaxed <br/>In process inspection (OPEN BOOK) bring Companies to agreements of reduced inspection percentages ",
+"Learn" : "Learn from each other<br/>Share learning across teams ",
+"Elba" : "Plan in place for balance material to Elba site<br/>How is material managed from a Quality perspective?",
+"material" : "Plan in place for New material to Elba site<br/>How is material managed from a Quality perspective?",
+"BHGE/Shell" : "Continue to Support One Team Approach BHGE/Shell at Elba<br/>Trust, Support, and Deliver to Team at site to keep from schedule delays to customer. Open communication"
+}
+
+var appmod = {
+"Modules" : "Larger Modules vs. Smaller Modules<br/>Larger modules would have allowed for fewer ship loose items. Forcing the modules to be barged. The facility should have been located on a water way to allow for this.",
+"Fabrication" : "Design, Fabrication, Constructability<br/>Some spaces are smaller and hard to maneuver in. Constructability analysis would have shown this sooner.",
+"Constructability" : "Design, Fabrication, Constructability<br/>The number of flanges required for the project are extensive because of the size of modules.",
+"ICP" : "ICP<br/>All ICP should be field fabricated to decrease the number of truck loads to site.",
+"Design" : "Design, Fabrication, Constructability<br/>Leak testing should have been performed on site once the modules were set up in their specified location.",
+"MMLS" : "MMLS Design Concept<br/>Develop a standardized design, customizable for Climate and location and optimized for fabrication, transportation, site installation and routine maintenance.",
+"Piping" : "Interconnecting Piping <br/>Design ICP for optimized site installation (flanged connections and welded connections as appropriate) with consideration for golden welds in certain locations",
+"Racks" : "Pipe Racks<br/>Consider not including in the modular design – stick build at site.",
+"Electrical" : "Electrical & Instrumentation Design<br/>No plug in, precut cable lengths.  Consider providing bulk cable rather than engineered lengths.",
+"moveable" : "Modules were built as moveable – moveable premise was flawed, in reality will never move one of these trains. ",
+"flange" : "Moveable concept drove a lot of decisions around the design, for example the flange connections; size of the modules were to be truckable",
+"welds" : "Preference to have field welds at some of the interface points",
+"flanges" : "Size of pipe racks were driven by the size of the flanges; pipe racks could have been stick built",
+"piping" : "Small bore piping could have been field routed",
+"stick built" : "ICPs could have been stick built, or built closer to site ",
+"Trucking" : "Trucking the MMLS modules for these 10 trains should have never been used on a port location If truckable modules weren’t the requirement then some of the modularization could have been done differently/size restriction could have optimized via larger modules/trains ",
+"compressor" : "The premise of the project didn’t fit with this individual project; it shouldn’t have had this set of goals (for the location of this project -Elba); 10 trains are too many for 1 single site -combine modules together, using bigger compressor, other larger equipment, etc. ",
+"1 train" : "The original premise was 1 train in a remote location",
+"expertise" : "Understand design and processes needed to complete the project; capture all the expertise practice in the early stages<br/>Add stakeholders earlier",
+"skids"  : "Customize Modules/skids to be Project Specific<br/>MMLS = Skillable Liq Systems This needs to be more standardized, does not need to be movable, if it does need to be moved.",
+"Re-Approach" : "Re-Approach Design",
+"ship" :  "Modularization no ship loose<br/>zero loose ship, minimize flanges, zero ICP at fabrication plant. Stick built",
+"NPT" : "Set the NPT to appropriate level<br/>Set the NPT to appropriate level.",
+"earthquake" : "Original premise: remote location, moveable, over design (cold weather, earthquake, low temp valves, piping that wasn’t needed) ",
+"bigger" : "Should have built just the modules; or built bigger modules",
+"welded" : "Too many flanges as per the moveable strategy; and not having the field welded approach"
+}
+
+var ruok = {
+"Implementation" : "Implementation<br/>Start it as early as possible and hold regular wellness engagement meetings. ",
+"Subcontractors" : "Subcontractors<br/>Verify that subcontractors’ programs are aligned. Engage contractors to participate in the initiative. Facilities should be consistent throughout the organization regardless of company, rank, or roles. ",
+"Visibility" : "Visibility<br/>Make sure senior leadership is visible and interacts with craft. ",
+"Welfare" : "Workers Welfare<br/>Make sure that programs such as RU OK? Are incorporated and rolled out as part of the normal EHS plan for future projects Ensure that local champions are appointed to focus on Workers Welfare programs and ensure that SPT endorse, finance and fully support the initiatives.",
+"Workers" : "Workers Welfare<br/>Ensure that Workers Welfare metrics are built into the KPIs for each new project and challenge the project teams to develop site specific, location appropriate programs to deliver",
+"Care" : "Start with a Care for People Strategy in the beginning<br/>How do you set this up from the beginning – agreement and support from senior management, get all the contractors, including subcontractors, etc. on board and in agreement with the program, set aside a budget, and agree what the requirements of the program are and include those requirements in the contract ",
+"benefits" : "Demonstrate benefits of RU OK (e.g. Care for People)<br/>Less HSSE incidents, increased productivity, less turnover, people want to work on the project “project of choice”, give specific examples/benefits seen on USLNG ",
+"RU OK" : "RU OK<br/>Requirements need to be included in the subcontractor’s contracts (flow down/cascade the requirements)",
+"confidentiality" : "Some workers had concern on confidentiality<br/>Look at how to address this in the rollout/ implementation and training of the workforce on this program",
+"Evaluate" : "Evaluate Care<br/>Evaluate how to employ care for Region/culture, etc",
+"Communication" : "Communication<br/>Contract agreements have to align Everyone is aware, involvement with everyone",
+"Commitment" : "Commitment<br/>Structured Commitment with all parties to agree what care will be "
+}
+
+
+
+function wordcloud(wrds, id, dict, id2) {
+
+	var layout = d3.layout.cloud()
+	    .size([500, 500])
+	    .words(wrds.map(function(d) {
+	      return {text: d, size: Math.random() * 45 + 25, test: "haha"};
+	    }))
+	    .padding(5)
+	    .rotate(function() { return 0; })
+	    .font("Impact")
+	    .fontSize(function(d) { return d.size; })
+	    .on("end", draw);
+
+	layout.start();
+
+	function draw(words) {
+	  d3.select(id)
+	      .attr("width", layout.size()[0])
+	      .attr("height", layout.size()[1])
+	    .append("g")
+	      .attr("transform", "translate(" + layout.size()[0] / 2 + "," + layout.size()[1] / 2 + ")")
+	    .selectAll("text")
+	      .data(words)
+	    .enter().append("text").on("click", function(d){$(id2).html((dict[d.text]));})
+	      .style("font-size", function(d) { return d.size + "px"; })
+	      .style("font-family", "Impact")
+	      .style("fill", function(d, i) { return fill(i); })
+	      .attr("text-anchor", "middle")
+	      .attr("transform", function(d) {
+		return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
+	      })
+	      .text(function(d) { return d.text; });
+	}
+
+}
+
+wordcloud(Object.keys(digitalization), "#wc1",digitalization,"#wc1pg" );
+wordcloud(Object.keys(design), "#wc2", design,"#wc2pg" );
+wordcloud(Object.keys(oneteam), "#wc3", oneteam,"#wc3pg" );
+wordcloud(Object.keys(appmod), "#wc4", appmod,"#wc4pg" );
+wordcloud(Object.keys(ruok), "#wc5", ruok,"#wc5pg" );
+
+</script>
+	</body>
+</html>
